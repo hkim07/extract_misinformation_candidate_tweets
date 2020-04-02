@@ -4,7 +4,7 @@
 ### For replies
 twint -s "((corona OR **virus** OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvirus OR (wuhan AND virus)) AND (antibiotic OR antibiotics)) lang:en since:2019-12-31 until:2020-04-01 filter:replies" -o 20191231_20200401_replies.json --json -ho
 
-NEXT collect their parents. Only analyze parents created by different users, written in English, and satisfying the query ((corona OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvirus OR (wuhan AND virus)) AND (antibiotic OR antibiotics)). 
+NEXT collect their parents. Hereafter, only analyze parents created by different users, written in English, and satisfying the query ((corona OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvirus OR (wuhan AND virus)) AND (antibiotic OR antibiotics)). 
 ```python
 import tweepy
 api = tweepy.API(auth)
