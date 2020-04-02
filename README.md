@@ -22,6 +22,7 @@ twint -s "((corona OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvi
 import preprocessor as p
 p.set_options(p.OPT.MENTION, p.OPT.EMOJI, p.OPT.URL)
 ```
+Then, feed preprocessed tweets to a Sentence-BERT model.
 
 ### Sentence-BERT & Official advice setting
 ```python
