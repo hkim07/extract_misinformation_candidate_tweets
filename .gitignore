@@ -1,3 +1,7 @@
 /dat
+
+config.py
+
+.gitignore
 .ipynb_checkpoints
 __pycache__
