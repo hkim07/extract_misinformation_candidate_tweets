@@ -1,4 +1,4 @@
-# covid19_misinformation_analysis
+# COVID-19 misinformation about use of antibiotics (for submission to HKS Misinformation Review)
 
 ## Data collection (Jan 1 - Mar 31, 2020)
 ### For replies
