@@ -15,11 +15,13 @@ api.get_status(id=target_id, tweet_mode='extended')
 twint -s "((corona OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvirus OR (wuhan AND virus)) AND (antibiotic OR antibiotics)) lang:en since:2019-12-31 until:2020-04-01 -filter:replies" -o 20191231_20200401_non_replies.json --json -ho
 
 ## Tweet replies preprocessing and sentence-BERT
+### Remove mentions, emojis, and URLs in text
 ```python
 import preprocessor as p
 p.set_options(p.OPT.MENTION, p.OPT.EMOJI, p.OPT.URL)
 ```
 
+### Sentence-BERT & Official advice setting
 ```python
 from sentence_transformers import SentenceTransformer
 sbert = SentenceTransformer('bert-base-nli-mean-tokens')
