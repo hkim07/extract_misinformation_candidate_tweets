@@ -12,3 +12,8 @@ twint -s "((corona OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvi
 import preprocessor as p
 p.set_options(p.OPT.MENTION, p.OPT.EMOJI, p.OPT.URL)
 ```
+
+```python
+from sentence_transformers import SentenceTransformer
+sbert = SentenceTransformer('bert-base-nli-mean-tokens')
+```
