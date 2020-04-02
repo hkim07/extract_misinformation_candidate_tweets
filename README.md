@@ -17,3 +17,7 @@ p.set_options(p.OPT.MENTION, p.OPT.EMOJI, p.OPT.URL)
 from sentence_transformers import SentenceTransformer
 sbert = SentenceTransformer('bert-base-nli-mean-tokens')
 ```
+
+#https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters
+who_official = "No, antibiotics do not work against viruses, only bacteria. The new coronavirus (2019-nCoV) is a virus and, therefore, antibiotics should not be used as a means of prevention or treatment. However, if you are hospitalized for the 2019-nCoV, you may receive antibiotics because bacterial co-infection is possible."
+
