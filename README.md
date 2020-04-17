@@ -30,7 +30,9 @@ This repo provides three Python scripts to extract tweets possibly containing he
 ### References
 Reimers, N., & Gurevych, I. (2019, November). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP) (pp. 3973-3983).
 
-## COVID-19 misinformation about use of antibiotics
+
+
+## Procedures used for the manuscript
 
 ### Data collection (Jan 1 - Mar 31, 2020)
 #### For replies
