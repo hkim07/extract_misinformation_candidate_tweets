@@ -14,12 +14,12 @@ This repo provides several Python scripts to extract tweets possibly containing 
 
 1) You need to download tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library.
 
-- Here is a sample command that saves tweet replies about COVID-19 that were written in English and posted during the first month of 2020. It takes a few miniutes to be finished (~2MB). 
+- Here is a sample command that saves tweet replies about COVID-19 that were written in English and posted during the first month of 2020. It takes some time to be finished (~2MB). 
     * twint -s "((corona AND virus) OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) lang:en since:2020-01-01 until:2020-01-31 filter:replies" -o replies.json --json -ho
     * Put the download file in the `/dat` folder. Delete files given with this repo if you are not interested in COVID-19 related tweet replies. 
     * You should change the query depending on your interest. 
 
-2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts will be removed.
+2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
 
 3) Run `calculate_similarity.py` that returns a file `replies_with_sims.csv` that a new column "sims" is added to the `replies.csv`. This column stores cosine similarity between representation vectors of replies and the vector of official advice that we set as a reference of accurate information. Representation vectors are computed through the Sentence-BERT model (Reimers & Gurevych, 2019). You can change official advice in `calculate_similarity.py`.
     * Warning messages will be shown, like "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:467: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
