@@ -1,20 +1,17 @@
 # Extract candidate tweets possibly containing health misinformation
 
-This repo provides three Python scripts to extract candidate tweets possibly containing health misinformation associated with an official advice from officially sanctioned sources such as the WHO and the CDC. Please follow the instructions below. 
+This repo provides three Python scripts to extract candidate tweets possibly containing health misinformation associated with official advice from health authorities such as the WHO and the CDC. Please follow the instructions below. 
 
 ## Instructions
 
-1) You need to download tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library. If this library is not installed on your machine, install the library first. 
-```
-pip install twint
-```
+1) You need to download tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library. If this library is not installed on your machine, install the library first by using `pip install twint`.
 
-- Here is a sample command that save tweet replies about COVID-19 that were written in English and posted during January, 2020.
+- Here is a sample command that saves tweet replies about COVID-19 that were written in English and posted during January, 2020.
     * twint -s "(corona OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) lang:en since:2020-01-01 until:2020-01-31 filter:replies" -o replies.json --json -ho
     * Put the download file to the `/dat` folder. Delete files given in this repo if you are not interested in COVID-19 related tweet replies. 
     * You should change the query depending on your interest. 
 
-2) Install a Python library `Preprocessor` by using `pip install tweet-preprocessor`. Then run `preprocess.py` that returns a csv file consisting of three columns: tweet_id, user_id, and text. Mentions, hastags, and URLs in body texts will be removed.
+2) Install a Python library `Preprocessor` by using `pip install tweet-preprocessor`. Then run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and text. Mentions, hastags, and URLs in body texts will be removed.
 
 ## COVID-19 misinformation about use of antibiotics
 
