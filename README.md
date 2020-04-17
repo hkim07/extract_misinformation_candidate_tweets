@@ -11,7 +11,7 @@ This repo provides three Python scripts to extract candidate tweets possibly con
 1) You need to download tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library.
 
 - Here is a sample command that saves tweet replies about COVID-19 that were written in English and posted during the first week of 2020. It takes time to be finished. 
-    * twint -s "(corona OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) lang:en since:2020-01-01 until:2020-01-7 filter:replies" -o replies.json --json -ho
+    * twint -s "(corona OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) lang:en since:2020-01-01 until:2020-01-07 filter:replies" -o replies.json --json -ho
     * Put the download file to the `/dat` folder. Delete files given in this repo if you are not interested in COVID-19 related tweet replies. 
     * You should change the query depending on your interest. 
 
