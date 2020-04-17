@@ -8,7 +8,7 @@ This repo provides three Python scripts to extract candidate tweets possibly con
 $ pip install twint
 ```
 
-Here is a sample command that obtains tweet replies about COVID-19 and antibiotics. 
+- Here is a sample command that obtains tweet replies about COVID-19 and antibiotics. 
 
 ```
 twint -s "((corona OR **virus** OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvirus OR (wuhan AND virus)) AND (antibiotic OR antibiotics)) lang:en since:2019-12-31 until:2020-04-01 filter:replies" -o 20191231_20200401_replies.json --json -ho
