@@ -1,6 +1,6 @@
-# Extract candidate tweets possibly containing misinformation
+# Extract candidate tweets possibly containing health misinformation
 
-This repo provides three Python scripts to extract candidate tweets possibly containing misinformation associated with an official advice from officially sanctioned sources such as the WHO and the CDC. Please follow the instructions below. 
+This repo provides three Python scripts to extract candidate tweets possibly containing health misinformation associated with an official advice from officially sanctioned sources such as the WHO and the CDC. Please follow the instructions below. 
 
 ## Instructions
 
