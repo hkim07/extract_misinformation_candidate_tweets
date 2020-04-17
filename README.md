@@ -15,7 +15,7 @@ This repo provides three Python scripts to extract tweets possibly containing he
 1) You need to download tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library.
 
 - Here is a sample command that saves tweet replies about COVID-19 that were written in English and posted during the first week of 2020. It takes some time to be finished (~12MB). 
-    * twint -s "(corona OR virus OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) lang:en since:2020-01-01 until:2020-01-07 filter:replies" -o replies.json --json -ho
+    * twint -s "((corona AND virus) OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) lang:en since:2020-01-01 until:2020-01-07 filter:replies" -o replies.json --json -ho
     * Put the download file in the `/dat` folder. Delete files given with this repo if you are not interested in COVID-19 related tweet replies. 
     * You should change the query depending on your interest. 
 
@@ -35,7 +35,7 @@ This repo provides three Python scripts to extract tweets possibly containing he
         - Access token as `akey` in ./config.py
         - Access token secret as `asec` in ./config.py
 
-5) Run `merge.py` to concatenate tweet replies and their parents in a dataframe. Now, it is time to examine whether misinformation exists in parents of replies having similar context with accurate information. 
+5) Run `merge.py` to concatenate tweet replies and their parents in a dataframe. Now, it is time to examine whether misinformation about COVID-19 exists in parents of replies having similar context with accurate information. 
 
 ### References
 Reimers, N., & Gurevych, I. (2019, November). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP) (pp. 3973-3983).
