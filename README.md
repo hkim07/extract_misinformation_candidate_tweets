@@ -16,7 +16,7 @@ This repo provides several Python scripts to extract tweets possibly containing 
 
 - Here is a sample command that saves tweet replies about COVID-19 that were written in English and posted during the first two weeks of 2020. It takes some time to be finished (~2MB). 
     * twint -s "((corona AND virus) OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) lang:en since:2020-01-01 until:2020-01-14 filter:replies" -o replies.json --json -ho
-    * Put the download file in the `/dat` folder. This is for in case that you have many files to cover a long period.
+    * Put the download file in the `/dat` folder. This is for in case that you have multiple files to cover a long period.
     * You should change the query depending on your interest. 
 
 2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
