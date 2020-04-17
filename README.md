@@ -8,8 +8,8 @@ This repo provides three Python scripts to extract candidate tweets possibly con
 $ pip install twint
 ```
 
-- Here is a sample command that save tweet replies about COVID-19 that were written in English and posted during January, 2020
--- twint -s "(corona OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) lang:en since:2020-01-01 until:2020-01-31 filter:replies" -o replies.json --json -ho
+- Here is a sample command that save tweet replies about COVID-19 that were written in English and posted during January, 2020.
+    * twint -s "(corona OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) lang:en since:2020-01-01 until:2020-01-31 filter:replies" -o replies.json --json -ho
 
 1) 
 
