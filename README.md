@@ -7,6 +7,7 @@ This repo provides three Python scripts to extract tweets possibly containing he
 - twint 2.1.12: `pip install twint==2.1.12`
 - preprocessor 0.5.0: `pip install tweet-preprocessor`
 - sentence-transformers 0.2.6.1: `pip install sentence-transformers`
+- scikit-learn 0.22.2.post1: `pip install -U scikit-learn`
 
 ## Instructions
 
