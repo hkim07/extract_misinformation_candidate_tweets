@@ -1,6 +1,15 @@
 # Extract candidate tweets possibly containing misinformation
 
-This repo provides three Python scripts to extract candidate tweets possibly containing misinformation associated with an official advice from officially sanctioned sources such as the WHO and the CDC. 
+This repo provides three Python scripts to extract candidate tweets possibly containing misinformation associated with an official advice from officially sanctioned sources such as the WHO and the CDC. Before running the following three scripts, you need to download tweet replies that satisfying a query comprising context-specific keywords. 
+
+For example, by using the `twint` library, we can obtain tweet replies about COVID-19 and antibiotics. 
+
+```
+twint -s "((corona OR **virus** OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvirus OR (wuhan AND virus)) AND (antibiotic OR antibiotics)) lang:en since:2019-12-31 until:2020-04-01 filter:replies" -o 20191231_20200401_replies.json --json -ho
+```
+
+
+1) 
 
 ## COVID-19 misinformation about use of antibiotics
 
