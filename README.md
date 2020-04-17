@@ -19,6 +19,11 @@ This repo provides three Python scripts to extract tweets possibly containing he
 
 2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and text. Mentions, emojis, and URLs in body texts will be removed.
 
+3) Run `calculate_similarity.py` that returns a file `replies_with_sims.csv` that a new column "sims" is added to the `replies.csv`. This column stores cosine similarity between representation vectors of replies and the vector of official advice that we set as a reference of accurate information. Representation vectors are computed through the Sentence-BERT model (Reimers & Gurevych, 2019). You can change official advice in `calculate_similarity.py`.
+
+### References
+Reimers, N., & Gurevych, I. (2019, November). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP) (pp. 3973-3983).
+
 ## COVID-19 misinformation about use of antibiotics
 
 ### Data collection (Jan 1 - Mar 31, 2020)
