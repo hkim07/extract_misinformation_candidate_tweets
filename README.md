@@ -1,6 +1,6 @@
 # Extract tweets possibly containing health misinformation
 
-This repo provides three Python scripts to extract tweets possibly containing health misinformation. These tweets have replies semantically similar with official advice from health authorities such as the WHO and the CDC. Please follow the instructions below. 
+This repo provides several Python scripts to extract tweets possibly containing health misinformation. These tweets have replies semantically similar with official advice from health authorities such as the WHO and the CDC. Please follow the instructions below. 
 
 ## Dependencies should be installed first.
 - pandas 1.0.0: `pip install pandas==1.0.0`
