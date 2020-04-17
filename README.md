@@ -5,9 +5,8 @@ This repo provides three Python scripts to extract candidate tweets possibly con
 ## Instructions
 
 1) You need to download tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library. If this library is not installed on your machine, install the library first. 
-
 ```
-$ pip install twint
+pip install twint
 ```
 
 - Here is a sample command that save tweet replies about COVID-19 that were written in English and posted during January, 2020.
@@ -15,7 +14,7 @@ $ pip install twint
     * Put the download file to the `/dat` folder. Delete files given in this repo if you are not interested in COVID-19 related tweet replies. 
     * You should change the query depending on your interest. 
 
-1) 
+2) Install a Python library `Preprocessor` by using `pip install tweet-preprocessor`. Then run `preprocess.py` that returns a csv file consisting of three columns: tweet_id, user_id, and text. Mentions, hastags, and URLs in body texts will be removed.
 
 ## COVID-19 misinformation about use of antibiotics
 
