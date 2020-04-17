@@ -19,7 +19,7 @@ This repo provides several Python scripts to extract tweets possibly containing 
     * Put the download file in the `/dat` folder. Delete files given with this repo if you are not interested in COVID-19 related tweet replies. 
     * You should change the query depending on your interest. 
 
-2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and text. Mentions, emojis, and URLs in body texts will be removed.
+2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts will be removed.
 
 3) Run `calculate_similarity.py` that returns a file `replies_with_sims.csv` that a new column "sims" is added to the `replies.csv`. This column stores cosine similarity between representation vectors of replies and the vector of official advice that we set as a reference of accurate information. Representation vectors are computed through the Sentence-BERT model (Reimers & Gurevych, 2019). You can change official advice in `calculate_similarity.py`.
     * Warning messages will be shown, like "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:467: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
