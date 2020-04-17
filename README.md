@@ -3,8 +3,8 @@
 This repo provides three Python scripts to extract candidate tweets possibly containing health misinformation associated with official advice from health authorities such as the WHO and the CDC. Please follow the instructions below. 
 
 ## Dependencies should be installed first.
-- Pandas 1.0.0: pip install pandas
-- Twint 2.1.12: `pip install twint`
+- Pandas 1.0.0: `pip install pandas==1.0.0`
+- Twint 2.1.12: `pip install twint==2.1.12`
 - Preprocessor 0.5.0: `pip install tweet-preprocessor`
 
 ## Instructions
