@@ -16,7 +16,7 @@ This repo provides three Python scripts to extract tweets possibly containing he
     * Put the download file in the `/dat` folder. Delete files given with this repo if you are not interested in COVID-19 related tweet replies. 
     * You should change the query depending on your interest. 
 
-2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and text. Mentions, hastags, and URLs in body texts will be removed.
+2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and text. Mentions, emojis, and URLs in body texts will be removed.
 
 ## COVID-19 misinformation about use of antibiotics
 
