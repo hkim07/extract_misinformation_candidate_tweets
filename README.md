@@ -8,6 +8,7 @@ This repo provides three Python scripts to extract tweets possibly containing he
 - preprocessor 0.5.0: `pip install tweet-preprocessor`
 - sentence-transformers 0.2.6.1: `pip install sentence-transformers`
 - scikit-learn 0.22.2.post1: `pip install -U scikit-learn`
+- tweepy 3.8.0: `pip install tweepy`
 
 ## Instructions
 
@@ -25,7 +26,9 @@ This repo provides three Python scripts to extract tweets possibly containing he
   _np_qint32 = np.dtype([("qint32", np.int32, 1)])". Ignore them. 
     * You can observe that replies of high similarity have similar context with the official advice defined in `calculate_similarity.py`.
   
-4) 
+4) Run `collect_parents.py` that saves JSON files for parents of selected replies. As Twitter API has a rate limit on searching a specific tweet ID, it takes much time if you want to collect parents of all replies. For this reason, we recommend to collect parents of a subset of replies of high similarity. The size of the subset can be set with `-n`.
+    * For example, if you run `python collect_parents.py -n 10`, only parents of top 10 replies in terms of similarity will be obtained.
+    * JSON files will be stored in the folder `/parents`.
 
 ### References
 Reimers, N., & Gurevych, I. (2019, November). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP) (pp. 3973-3983).
