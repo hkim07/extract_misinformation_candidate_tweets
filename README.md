@@ -35,6 +35,8 @@ This repo provides three Python scripts to extract tweets possibly containing he
         - Access token as `akey` in ./config.py
         - Access token secret as `asec` in ./config.py
 
+5) Run `merge.py` to concatenate tweet replies and their parents in a dataframe. Now, it is time to examine whether misinformation exists in parents of replies having similar context with accurate information. 
+
 ### References
 Reimers, N., & Gurevych, I. (2019, November). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP) (pp. 3973-3983).
 
