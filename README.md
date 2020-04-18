@@ -21,7 +21,7 @@ This repo provides several Python scripts to extract tweets possibly containing 
     * You can change the query depending on your interest. 
 
 2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: reply_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
-    * As Microsoft Excel does not fully recognize tweet IDs, we intentionally paste "_" in front of each tweet ID.
+    * As Microsoft Excel does not fully recognize tweet and user IDs, we intentionally paste "_" in front of each ID.
 
 3) Run `calculate_similarity.py` that returns a file `replies_with_sims.csv`. A new column "sims" will be added to the data of `replies.csv`. This column stores cosine similarity between representation vectors of replies and the vector of official advice that we set as a reference of accurate information. Representation vectors are computed through the Sentence-BERT model (Reimers & Gurevych, 2019). You can change official advice in `calculate_similarity.py`.
     * We set the official advice related to COVID-19 and antibiotics from the WHO (Visit https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters)
