@@ -18,6 +18,7 @@ for file in file_list:
         sampled_tweets.append(extract_tweet_info(json.loads(line)))
 
 sampled_tweets_df = pd.DataFrame(sampled_tweets, columns=['reply_id', 'user_id', 'reply_text'])
+sampled_tweets_df = sampled_tweets_df.drop_duplicates()
 sampled_tweets_df.reply_text = sampled_tweets_df.reply_text.apply(twitter_preprocessing)
 sampled_tweets_df.to_csv('./replies.csv', index=False)
 print("Saved in replies.csv")
