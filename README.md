@@ -12,28 +12,31 @@ This repo provides several Python scripts to extract tweets possibly containing 
 
 ## Instructions
 
-1) You need to download tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library.
+** Assume that we are interested in identifying misinformation about COVID-19 and antibiotics **
 
-- Here is a sample command that saves tweet replies about COVID-19 that were written in English and posted during the first three weeks of 2020. It takes a few minutes to be finished (~2MB). 
-    * twint -s "((corona AND virus) OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) lang:en since:2020-01-01 until:2020-01-21 filter:replies" -o replies.json --json -ho
-    * Put the download file in the `/dat` folder. This is for in case that you have multiple files to cover a long period.
-    * You should change the query depending on your interest. 
+1) You need to download tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library.
+- Here is a sample command that saves tweet replies about COVID-19 and antibiotics that were written in English and posted during the first month of 2020. It takes a few minutes to be finished (~1.1MB). 
+    * twint -s "(((corona OR virus OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) AND (antibiotic OR antibiotics)) lang:en since:2020-01-01 until:2020-01-31 filter:replies" -o replies.json --json -ho
+    * Put the downloaded file in the `/dat` folder. This is for in case that you have multiple files to cover a long period.
+    * You can change the query depending on your interest. 
 
 2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
 
-3) Run `calculate_similarity.py` that returns a file `replies_with_sims.csv` that a new column "sims" is added to the `replies.csv`. This column stores cosine similarity between representation vectors of replies and the vector of official advice that we set as a reference of accurate information. Representation vectors are computed through the Sentence-BERT model (Reimers & Gurevych, 2019). You can change official advice in `calculate_similarity.py`.
+3) Run `calculate_similarity.py` that returns a file `replies_with_sims.csv`. A new column "sims" will be added to the data of `replies.csv`. This column stores cosine similarity between representation vectors of replies and the vector of official advice that we set as a reference of accurate information. Representation vectors are computed through the Sentence-BERT model (Reimers & Gurevych, 2019). You can change official advice in `calculate_similarity.py`.
+    * We set the official advice related to COVID-19 and antibiotics from the WHO (https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters)
     * Warning messages will be shown, like "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:467: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
-  _np_qint32 = np.dtype([("qint32", np.int32, 1)])". Ignore them. 
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])". Just ignore them. 
     * You can observe that replies of high similarity have similar context with the official advice defined in `calculate_similarity.py`.
+    
+4-1) Save your Twitter API credential in `./config.py`.
+    * Consumer API key as `ckey` in ./config.py
+    * Consumer API secret key as `csec` in ./config.py
+    * Access token as `akey` in ./config.py
+    * Access token secret as `asec` in ./config.py
   
-4) Run `collect_parents.py` that saves JSON files for parents of selected replies. As Twitter API has a rate limit on searching a specific tweet ID, it takes much time if you want to collect parents of all replies. For this reason, we recommend to collect parents of a subset of replies of high similarity. The size of the subset can be set with `-n`.
+4-2) Run `collect_parents.py` that saves JSON files for parents of selected replies. As Twitter API has a rate limit on searching a specific tweet ID, it takes much time if you want to collect parents of all replies. For this reason, we recommend to collect parents of a subset of replies of high similarity. The size of the subset can be set with `-n`.
     * For example, if you run `python collect_parents.py -n 10`, only parents of top 10 replies in terms of similarity will be obtained.
-    * JSON files will be stored in the folder `/parents`.
-    * You should save your Twitter API credential in ./config.py.
-        - Consumer API key as `ckey` in ./config.py
-        - Consumer API secret key as `csec` in ./config.py
-        - Access token as `akey` in ./config.py
-        - Access token secret as `asec` in ./config.py
+    * JSON files will be stored in the folder `/parents`.        
 
 5) Run `merge.py` to concatenate tweet replies and their parents in a dataframe. Now, it is time to examine whether misinformation about COVID-19 exists in parents of replies having similar context with accurate information. 
 
