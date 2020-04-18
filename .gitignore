@@ -3,3 +3,7 @@ config.py
 .gitignore
 .ipynb_checkpoints
 __pycache__
+
+dat/
+parents/
+*.csv
