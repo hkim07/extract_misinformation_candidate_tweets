@@ -28,17 +28,17 @@ This repo provides several Python scripts to extract tweets possibly containing 
   _np_qint32 = np.dtype([("qint32", np.int32, 1)])". Just ignore them. 
     * You can observe that replies of high similarity have similar context with the official advice defined in `calculate_similarity.py`.
     
-4-1) Save your Twitter API credential in `./config.py`.
+4) Save your Twitter API credential in `./config.py`.
     * Consumer API key as `ckey` in ./config.py
     * Consumer API secret key as `csec` in ./config.py
     * Access token as `akey` in ./config.py
     * Access token secret as `asec` in ./config.py
   
-4-2) Run `collect_parents.py` that saves JSON files for parents of selected replies. As Twitter API has a rate limit on searching a specific tweet ID, it takes much time if you want to collect parents of all replies. For this reason, we recommend to collect parents of a subset of replies of high similarity. The size of the subset can be set with `-n`.
+5) Run `collect_parents.py` that saves JSON files for parents of selected replies. As Twitter API has a rate limit on searching a specific tweet ID, it takes much time if you want to collect parents of all replies. For this reason, we recommend to collect parents of a subset of replies of high similarity. The size of the subset can be set with `-n`.
     * For example, if you run `python collect_parents.py -n 10`, only parents of top 10 replies in terms of similarity will be obtained.
     * JSON files will be stored in the folder `/parents`.        
 
-5) Run `merge.py` to concatenate tweet replies and their parents in a dataframe. Now, it is time to examine whether misinformation about COVID-19 exists in parents of replies having similar context with accurate information. 
+6) Run `merge.py` to concatenate tweet replies and their parents in a dataframe. Now, it is time to examine whether misinformation about COVID-19 exists in parents of replies having similar context with accurate information. 
 
 ### References
 Reimers, N., & Gurevych, I. (2019, November). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP) (pp. 3973-3983).
