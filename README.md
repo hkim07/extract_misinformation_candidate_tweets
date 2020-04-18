@@ -16,7 +16,7 @@ This repo provides several Python scripts to extract tweets possibly containing 
 
 1) You need to download tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library.
 - Here is a sample command that saves tweet replies about COVID-19 and antibiotics that were written in English and posted during the first month of 2020. It takes a few minutes to be finished (~1.1MB). 
-    * twint -s "(((corona OR virus OR coronavirus OR covid-19 OR covid19 OR 2019-ncov) AND (antibiotic OR antibiotics)) lang:en since:2020-01-01 until:2020-01-31 filter:replies" -o replies.json --json -ho
+    * twint -s "((corona OR virus OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvirus OR (wuhan AND virus)) AND (antibiotic OR antibiotics))lang:en since:2020-01-01 until:2020-01-31 filter:replies" -o replies.json --json -ho
     * Put the downloaded file in the `/dat` folder. This is for in case that you have multiple files to cover a long period.
     * You can change the query depending on your interest. 
 
