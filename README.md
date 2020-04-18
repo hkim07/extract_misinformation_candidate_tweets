@@ -23,7 +23,7 @@ This repo provides several Python scripts to extract tweets possibly containing 
 2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: tweet_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
 
 3) Run `calculate_similarity.py` that returns a file `replies_with_sims.csv`. A new column "sims" will be added to the data of `replies.csv`. This column stores cosine similarity between representation vectors of replies and the vector of official advice that we set as a reference of accurate information. Representation vectors are computed through the Sentence-BERT model (Reimers & Gurevych, 2019). You can change official advice in `calculate_similarity.py`.
-    * We set the official advice related to COVID-19 and antibiotics from the WHO (https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters)
+    * We set the official advice related to COVID-19 and antibiotics from the WHO (Visit https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters)
     * Warning messages will be shown, like "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:467: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
   _np_qint32 = np.dtype([("qint32", np.int32, 1)])". Just ignore them. 
     * You can observe that replies of high similarity have similar context with the official advice defined in `calculate_similarity.py`.
