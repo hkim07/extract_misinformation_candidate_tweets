@@ -12,7 +12,7 @@ Please follow the instructions below.
 
 ## Instructions
 
-** Assume that we are interested in identifying misinformation about COVID-19 and antibiotics **
+**Assume that we are interested in identifying misinformation about COVID-19 and antibiotics**
 
 1) You need to download tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library.
 - Here is a sample command that saves tweet replies about COVID-19 and antibiotics that were written in English and posted during the first month of 2020. It takes a few minutes to be finished (~1.1MB). 
@@ -44,5 +44,5 @@ Please follow the instructions below.
     * For obtaining better results, parents related to COVID-19 and antibiotics should be examined. Searching parents that have context-specific keywords may help to reduce the search space.
     * Several tweets contain misinformation about COVID-19 and antibiotics. For example, a tweet (ID = 1221440124912713730) claimed that an antibiotics therapy is effective against COVID-19 and another tweet (ID = 1221334540993478656) raised a conspiracy theory that COVID-19 was created by the China to sell more antibiotics.
 
-### Reference
+### References
 Reimers, N., & Gurevych, I. (2019, November). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP) (pp. 3973-3983).
