@@ -6,6 +6,16 @@ def twitter_preprocessing(x):
   tmp = p.clean(x)
   return tmp
 
+from langdetect import detect
+def detect_lang(_text):
+    from langdetect import DetectorFactory
+    DetectorFactory.seed = 0
+    try:
+        lang = detect(_text)
+    except:
+        lang = ''
+    return lang
+
 dat = pd.read_csv('./replies_with_sims.csv')
 
 op_df = []
@@ -24,6 +34,8 @@ for ix, target_id in enumerate(dat.reply_id):
 
 op_df = pd.DataFrame(op_df, columns = ['parent_id', 'reply_id', 'user_id', 'parent_text'])
 op_df.parent_text = op_df.parent_text.apply(twitter_preprocessing)
+lang = op_df.parent_text.apply(detect_lang)
+op_df = op_df[lang=='en']
 
 merged = op_df.merge(dat, left_on='reply_id', right_on='reply_id')
 merged = merged[merged.user_id_x!=merged.user_id_y]
