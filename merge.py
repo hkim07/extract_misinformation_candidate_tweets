@@ -39,7 +39,7 @@ op_df = op_df[lang=='en']
 
 merged = op_df.merge(dat, left_on='reply_id', right_on='reply_id')
 merged = merged[merged.user_id_x!=merged.user_id_y]
-merged = merged[['parent_id', 'reply_id', 'parent_text', 'reply_text', 'sims']]
+merged = merged[['parent_id', 'parent_text']]
 
 merged.to_csv('./merged.csv', index=False)
 print("Saved in merged.csv")
