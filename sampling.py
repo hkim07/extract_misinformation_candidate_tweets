@@ -3,7 +3,7 @@ import pandas as pd
 
 def main():
     dat = pd.read_csv('./replies.csv')
-    dat = dat.sample(n = args.number)
+    dat = dat.sample(n = args.number, random_state=0)
     dat.to_csv('./samples.csv', index = False)
     print("Saved in samples.csv")
 
