@@ -9,6 +9,7 @@ Please follow the instructions below.
 - sentence-transformers 0.2.6.1: `pip install sentence-transformers`
 - scikit-learn 0.22.2.post1: `pip install -U scikit-learn`
 - tweepy 3.8.0: `pip install tweepy`
+- langdetect 1.0.8: `pip install langdetect`
 
 ## Instructions
 
