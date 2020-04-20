@@ -3,13 +3,13 @@
 Please follow the instructions below. 
 
 ## Dependencies should be installed first.
-- pandas 1.0.0: `pip install pandas==1.0.0`
-- twint 2.1.12: `pip install twint==2.1.12`
-- preprocessor 0.5.0: `pip install tweet-preprocessor`
-- sentence-transformers 0.2.6.1: `pip install sentence-transformers`
-- scikit-learn 0.22.2.post1: `pip install -U scikit-learn`
-- tweepy 3.8.0: `pip install tweepy`
-- langdetect 1.0.8: `pip install langdetect`
+- pandas: `pip install pandas`
+- twint: `pip install twint`
+- sentence-transformers: `pip install sentence-transformers`
+- scikit-learn: `pip install -U scikit-learn`
+- tweepy: `pip install tweepy`
+- langdetect:`pip install langdetect`
+- emoji: `pip install emoji --upgrade`
 
 ## Instructions
 
