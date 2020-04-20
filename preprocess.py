@@ -9,7 +9,7 @@ def twitter_preprocessing(x):
     #Remove URLs
     x = ' '.join(re.sub("(\w+:\/\/\S+)", " ", x).split())
     #Remove emojis
-    x = emoji.get_emoji_regexp().sub(r'', x)
+    x = ' '.join(emoji.get_emoji_regexp().sub(r'', x).split())
     return x
 
 file_list= ['./dat/'+ x for x in os.listdir('./dat/') if x.endswith('.json')]
