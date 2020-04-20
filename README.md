@@ -9,7 +9,7 @@ Please follow the instructions below.
 - scikit-learn: `pip install -U scikit-learn`
 - tweepy: `pip install tweepy`
 - langdetect:`pip install langdetect`
-- emoji: `pip install emoji --upgrade`
+- emoji: `pip install emoji`
 
 ## Instructions
 
