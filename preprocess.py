@@ -1,11 +1,18 @@
-import os, json
+import os, json, re
 import pandas as pd
-import preprocessor as p
-p.set_options(p.OPT.MENTION, p.OPT.EMOJI, p.OPT.URL)
+import emoji
 
 def twitter_preprocessing(x):
-  tmp = p.clean(x)
-  return tmp
+    #https://towardsdatascience.com/twitter-sentiment-analysis-using-fasttext-9ccd04465597
+    #Remove mentions
+    x = ' '.join(re.sub("(@[A-Za-z0-9]+)", " ", x).split())
+    #Remove URLs
+    x = ' '.join(re.sub("(\w+:\/\/\S+)", " ", x).split())
+    #Demojize
+    x = emoji.demojize(x)
+    x = x.replace(":"," ")
+    x = ' '.join(x.split())
+    return x
 
 file_list= ['./dat/'+ x for x in os.listdir('./dat/') if x.endswith('.json')]
 
