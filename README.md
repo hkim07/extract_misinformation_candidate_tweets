@@ -3,13 +3,13 @@
 Please follow the instructions below. 
 
 ## Dependencies should be installed first.
-- pandas 1.0.0: `pip install pandas==1.0.0`
-- twint 2.1.12: `pip install twint==2.1.12`
-- preprocessor 0.5.0: `pip install tweet-preprocessor`
-- sentence-transformers 0.2.6.1: `pip install sentence-transformers`
-- scikit-learn 0.22.2.post1: `pip install -U scikit-learn`
-- tweepy 3.8.0: `pip install tweepy`
-- langdetect 1.0.8: `pip install langdetect`
+- pandas: `pip install pandas`
+- twint: `pip install twint`
+- sentence-transformers: `pip install sentence-transformers`
+- scikit-learn: `pip install -U scikit-learn`
+- tweepy: `pip install tweepy`
+- langdetect:`pip install langdetect`
+- emoji: `pip install emoji`
 
 ## Instructions
 
@@ -17,7 +17,7 @@ Please follow the instructions below.
 
 1) You need to download public tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library.
 - Here is a sample command that saves tweet replies about COVID-19 and antibiotics that were written in English and posted during the first month of 2020. It takes a few minutes to be finished (~1.1MB). 
-    * twint -s "((corona OR virus OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvirus OR (wuhan AND virus)) AND (antibiotic OR antibiotics))lang:en since:2020-01-01 until:2020-01-31 filter:replies" -o replies.json --json -ho
+    * twint -s "((corona OR virus OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvirus OR (wuhan AND virus)) AND (antibiotic OR antibiotics)) lang:en since:2020-01-01 until:2020-01-31 filter:replies" -o replies.json --json -ho
     * Put the downloaded file in the `/dat` folder. This is for in case that you have multiple files to cover a long period.
     * You can change the query depending on your interest. 
 
