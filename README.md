@@ -10,6 +10,7 @@ Please follow the instructions below.
 - tweepy: `pip install tweepy`
 - langdetect:`pip install langdetect`
 - emoji: `pip install emoji`
+- ftfy: `pip install ftfy`
 
 ## Instructions
 
