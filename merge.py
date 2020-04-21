@@ -5,7 +5,7 @@ import emoji
 def twitter_preprocessing(x):
     #https://towardsdatascience.com/twitter-sentiment-analysis-using-fasttext-9ccd04465597
     #Remove mentions
-    x = ' '.join(re.sub("(@[A-Za-z0-9]+)", " ", x).split())
+    x = ' '.join(re.sub("(@[A-Za-z0-9_]+)", " ", x).split())
     #Remove URLs
     x = ' '.join(re.sub("(\w+:\/\/\S+)", " ", x).split())
     #Remove emojis

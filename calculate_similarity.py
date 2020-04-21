@@ -8,7 +8,7 @@ dat = pd.read_csv('./replies.csv')
 sbert_embs = np.array(sbert.encode(dat.reply_text, show_progress_bar=True, batch_size=50))
 
 #https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters
-official_advice = "The first human cases of COVID-19 were identified in Wuhan City, China in December 2019. At this stage, it is not possible to determine precisely how humans in China were initially infected with SARS-CoV-2."
+official_advice = "Smokers are likely to be more vulnerable to COVID-19 as the act of smoking means that fingers (and possibly contaminated cigarettes) are in contact with lips which increases the possibility of transmission of virus from hand to mouth. Smokers may also already have lung disease or reduced lung capacity which would greatly increase risk of serious illness."
 
 advice_embs = sbert.encode([official_advice], show_progress_bar=False)
 sims = cosine_similarity(advice_embs, sbert_embs)
