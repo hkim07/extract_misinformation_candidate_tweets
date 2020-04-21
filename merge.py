@@ -1,10 +1,16 @@
-import os, json
+import os, json, re
 import pandas as pd
-import preprocessor as p
-p.set_options(p.OPT.MENTION, p.OPT.EMOJI, p.OPT.URL)
+import emoji
+
 def twitter_preprocessing(x):
-  tmp = p.clean(x)
-  return tmp
+    #https://towardsdatascience.com/twitter-sentiment-analysis-using-fasttext-9ccd04465597
+    #Remove mentions
+    x = ' '.join(re.sub("(@[A-Za-z0-9]+)", " ", x).split())
+    #Remove URLs
+    x = ' '.join(re.sub("(\w+:\/\/\S+)", " ", x).split())
+    #Remove emojis
+    x = ' '.join(emoji.get_emoji_regexp().sub(r'', x).split())
+    return x
 
 from langdetect import detect
 def detect_lang(_text):
@@ -39,7 +45,7 @@ op_df = op_df[lang=='en']
 
 merged = op_df.merge(dat, left_on='reply_id', right_on='reply_id')
 merged = merged[merged.user_id_x!=merged.user_id_y]
-merged = merged[['parent_id', 'parent_text']]
+merged = merged[['parent_id', 'parent_text', 'reply_text', 'sim']]
 
 merged.to_csv('./merged.csv', index=False)
 print("Saved in merged.csv")
