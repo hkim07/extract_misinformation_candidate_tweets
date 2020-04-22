@@ -16,7 +16,7 @@ Please follow the instructions below.
 
 **Assume that we are interested in identifying misinformation about COVID-19 and antibiotics**
 
-1) Run `crawl.py` to download public tweets that satisfying a query comprising context-specific keywords by using the `twint` library.
+1) Run `crawl.py` to download public tweets that satisfying a query comprising context-specific keywords.
 - Credit: jomorrcode - https://github.com/twintproject/twint/issues/604
 - I put the code written by jomorrcode as `crawl.py`
     * You should change query, start date, and end date, depending on your interest. 
