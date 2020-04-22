@@ -16,12 +16,11 @@ Please follow the instructions below.
 
 **Assume that we are interested in identifying misinformation about COVID-19 and antibiotics**
 
-1) Download public tweets that satisfying a query comprising context-specific keywords by using the `twint` library.
+1) Run `crawl.py` to download public tweets that satisfying a query comprising context-specific keywords by using the `twint` library.
 - Credit: jomorrcode - https://github.com/twintproject/twint/issues/604
 - I put the code written by jomorrcode as `crawl.py`
-- `crawl.py` is for collecting tweets (in English) that were matched with the query and posted during the three month of 2020.
-    * This file returns `{start date}_{end date}.csv`.
-    * You can change the query depending on your interest.
+    * You should change query, start date, and end date, depending on your interest. 
+    * This file returns `{start date}_{end date}.csv`.    
 
 2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: reply_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
     * As Microsoft Excel does not fully recognize tweet and user IDs, we intentionally paste "_" in front of each ID.
