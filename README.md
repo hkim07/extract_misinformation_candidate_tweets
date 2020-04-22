@@ -20,7 +20,8 @@ Please follow the instructions below.
     - Credit: jomorrcode - https://github.com/twintproject/twint/issues/604
     - I put the code written by jomorrcode as `crawl.py`
         * You should change query, start date, and end date, depending on your interest. 
-        * This file returns `tweets.csv`.    
+        * This file returns `{start date}_{end date}.csv`.    
+    - File will be downloaded in the `/dat` folder. 
 
 2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: reply_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
     * As Microsoft Excel does not fully recognize tweet and user IDs, we intentionally paste "_" in front of each ID.
