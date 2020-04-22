@@ -15,7 +15,7 @@ def main():
 
     dat = pd.read_csv('./replies_with_sims.csv')
     dat = dat[:args.number]
-    reply_ids = dat.reply_id
+    reply_ids = dat.tweet_id
 
     filelist = [x.split('.json')[0] for x in filelist]
     for ix, reply_id in enumerate(reply_ids):

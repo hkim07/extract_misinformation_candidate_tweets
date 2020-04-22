@@ -1,6 +1,6 @@
 import os, json, re
 import pandas as pd
-import emoji
+import emoji, ftfy
 
 def twitter_preprocessing(x):
     #https://towardsdatascience.com/twitter-sentiment-analysis-using-fasttext-9ccd04465597
@@ -10,6 +10,7 @@ def twitter_preprocessing(x):
     x = ' '.join(re.sub("(\w+:\/\/\S+)", " ", x).split())
     #Remove emojis
     x = ' '.join(emoji.get_emoji_regexp().sub(r'', x).split())
+    x = ftfy.fix_text(x)
     return x
 
 file_list= ['./dat/'+ x for x in os.listdir('./dat/') if x.endswith('.json')]

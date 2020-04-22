@@ -1,6 +1,7 @@
 import os, json, re
 import pandas as pd
-import emoji
+import emoji, ftfy
+from langdetect import detect
 
 def twitter_preprocessing(x):
     #https://towardsdatascience.com/twitter-sentiment-analysis-using-fasttext-9ccd04465597
@@ -10,9 +11,9 @@ def twitter_preprocessing(x):
     x = ' '.join(re.sub("(\w+:\/\/\S+)", " ", x).split())
     #Remove emojis
     x = ' '.join(emoji.get_emoji_regexp().sub(r'', x).split())
+    x = ftfy.fix_text(x)
     return x
 
-from langdetect import detect
 def detect_lang(_text):
     from langdetect import DetectorFactory
     DetectorFactory.seed = 0
@@ -25,7 +26,7 @@ def detect_lang(_text):
 dat = pd.read_csv('./replies_with_sims.csv')
 
 op_df = []
-for ix, target_id in enumerate(dat.reply_id):
+for ix, target_id in enumerate(dat.tweet_id):
     target_id = target_id[1:]
     try:
         with open("./parents/%s.json" % target_id, 'r') as f:
