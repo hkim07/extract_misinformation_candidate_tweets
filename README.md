@@ -17,10 +17,11 @@ Please follow the instructions below.
 **Assume that we are interested in identifying misinformation about COVID-19 and antibiotics**
 
 1) You need to download public tweet replies that satisfying a query comprising context-specific keywords by using the `twint` library.
-- Here is a sample command that saves tweet replies about COVID-19 and antibiotics that were written in English and posted during the first month of 2020. It takes a few minutes to be finished (~1.1MB). 
-    * twint -s "((corona OR virus OR coronavirus OR covid-19 OR covid19 OR 2019-ncov OR wuhanvirus OR (wuhan AND virus)) AND (antibiotic OR antibiotics)) lang:en since:2020-01-01 until:2020-01-31 filter:replies" -o replies.json --json -ho
-    * Put the downloaded file in the `/dat` folder. This is for in case that you have multiple files to cover a long period.
-    * You can change the query depending on your interest. 
+- Credit: jomorrcode - https://github.com/twintproject/twint/issues/604
+- I put the code written by jomorrcode as `crawl.py`
+- `crawl.py` contains a query to collect replies that wer written in English and posted during the three month of 2020.
+    * This file returns `{start date}_{end date}.csv`.
+    * You can change the query depending on your interest.
 
 2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: reply_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
     * As Microsoft Excel does not fully recognize tweet and user IDs, we intentionally paste "_" in front of each ID.
