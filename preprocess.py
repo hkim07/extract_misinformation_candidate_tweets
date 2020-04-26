@@ -1,7 +1,7 @@
-import os, json, re
+import os, json, re, ast
 import pandas as pd
+import numpy as np
 import emoji, ftfy
-
 def twitter_preprocessing(x):
     #https://towardsdatascience.com/twitter-sentiment-analysis-using-fasttext-9ccd04465597
     #Remove mentions
@@ -13,18 +13,43 @@ def twitter_preprocessing(x):
     x = ftfy.fix_text(x)
     return x
 
-file_list= ['./dat/'+ x for x in os.listdir('./dat/') if x.endswith('.json')]
+folder = 'res'
+if not os.path.exists(folder):
+    os.makedirs(folder)
 
-def extract_tweet_info(x):
-    return ['_'+str(x.get('id', '')), '_'+str(x.get('user_id', '')), x.get('tweet', '')]
+file_list= ['./dat/'+ x for x in os.listdir('./dat/') if x.endswith('.csv')]
 
-sampled_tweets = []
+dat = []
 for file in file_list:
-    for line in open(file, 'r', encoding='latin-1'):
-        sampled_tweets.append(extract_tweet_info(json.loads(line)))
+    dat.append(pd.read_csv(file))
 
-sampled_tweets_df = pd.DataFrame(sampled_tweets, columns=['tweet_id', 'user_id', 'reply_text'])
-sampled_tweets_df = sampled_tweets_df.drop_duplicates()
-sampled_tweets_df.reply_text = sampled_tweets_df.reply_text.apply(twitter_preprocessing)
-sampled_tweets_df.to_csv('./replies.csv', index=False)
-print("Saved in replies.csv")
+dat = pd.concat(dat)
+
+reply_ids = []
+for ix, x in enumerate(dat.reply_to):
+    x = ast.literal_eval(x)
+    tmp = []
+    for y in x:
+        tmp.append(y['user_id'])
+    user_id = str(dat.iloc[ix].user_id)
+    if user_id in tmp:
+        tmp.remove(user_id)
+    reply_ids.append(tmp)
+
+dat.id = ['_'+str(x) for x in dat.id]
+dat.user_id = ['_'+str(x) for x in dat.user_id]
+dat.tweet = dat.tweet.apply(twitter_preprocessing)
+
+tweet_df = dat[['id', 'user_id', 'created_at', 'tweet']]
+tweet_df = tweet_df.drop_duplicates()
+tweet_df = tweet_df.assign(created_at = ['_'+str(x) for x in (tweet_df.created_at/1000.0).map(int)])
+
+non_replies = tweet_df.loc[pd.Series([len(x) for x in reply_ids])==0]
+non_replies = non_replies.reset_index(drop=True)
+non_replies.to_csv('./res/non_replies.csv', index=False)
+
+replies = tweet_df[np.array([len(x) for x in reply_ids])!=0]
+replies = replies.reset_index(drop=True)
+replies.to_csv('./res/replies.csv', index=False)
+
+print("Saved in ./res folder.")

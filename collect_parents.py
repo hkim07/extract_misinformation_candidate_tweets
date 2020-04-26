@@ -13,9 +13,9 @@ def main():
         os.makedirs(folder)
     filelist = os.listdir(folder)
 
-    dat = pd.read_csv('./replies_with_sims.csv')
+    dat = pd.read_csv('./res/replies_with_sims.csv')
     dat = dat[:args.number]
-    reply_ids = dat.tweet_id
+    reply_ids = dat.id
 
     filelist = [x.split('.json')[0] for x in filelist]
     for ix, reply_id in enumerate(reply_ids):
@@ -42,6 +42,6 @@ def main():
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Enter the size of subset')
-  parser.add_argument('-n',  '--number', default = 100, type=int)
+  parser.add_argument('-n',  '--number', default = 10, type=int)
   args = parser.parse_args()
   main()

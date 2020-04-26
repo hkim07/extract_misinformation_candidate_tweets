@@ -1,8 +1,8 @@
 import os, json, re
 import pandas as pd
-import emoji, ftfy
 from langdetect import detect
 
+import emoji, ftfy
 def twitter_preprocessing(x):
     #https://towardsdatascience.com/twitter-sentiment-analysis-using-fasttext-9ccd04465597
     #Remove mentions
@@ -23,10 +23,10 @@ def detect_lang(_text):
         lang = ''
     return lang
 
-dat = pd.read_csv('./replies_with_sims.csv')
+dat = pd.read_csv('./res/replies_with_sims.csv')
 
 op_df = []
-for ix, target_id in enumerate(dat.tweet_id):
+for ix, target_id in enumerate(dat.id):
     target_id = target_id[1:]
     try:
         with open("./parents/%s.json" % target_id, 'r') as f:
@@ -44,9 +44,10 @@ op_df.parent_text = op_df.parent_text.apply(twitter_preprocessing)
 lang = op_df.parent_text.apply(detect_lang)
 op_df = op_df[lang=='en']
 
-merged = op_df.merge(dat, left_on='reply_id', right_on='tweet_id')
+merged = op_df.merge(dat, left_on='reply_id', right_on='id')
 merged = merged[merged.user_id_x!=merged.user_id_y]
-merged = merged[['parent_id', 'parent_text', 'reply_text', 'sim']]
+merged = merged[['id', 'user_id_x', 'reply_id', 'parent_text', 'tweet', 'sim']]
+merged.columns = ['parent_id', 'user_id', 'reply_id', 'parent_text', 'reply_text', 'sim']
 
-merged.to_csv('./merged.csv', index=False)
-print("Saved in merged.csv")
+merged.to_csv('./res/merged.csv', index=False)
+print("Saved in ./res/merged.csv")
