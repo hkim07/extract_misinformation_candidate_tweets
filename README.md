@@ -18,13 +18,15 @@ Please follow the instructions below.
 
 1) Run `crawl.py` to download public tweet replies that satisfy a query comprising context-specific keywords.
     * You should change query, start date, and end date, depending on your interest. 
-    * This script returns `{query}_{start date}_{end date}.json` in the `/dat` folder.   
+    * This script returns `{query}_{start date}_{end date}.csv` in the `/dat` folder.   
     * As Twitter often blocks repeated requests, `twint` library offers an option `Resume` to resume search from the last scroll ID. `crawl.py` saves `resume.txt` for this purpose. If this script stops, wait a few minutes and run the script again. Do not delete `resume.txt` until you get the intended data.
+    * If you want to run a script for a new query, delete the existing `resume.txt`.
+    * We preset the query for collecting tweet replies posted on March 1, 2020.
 
-2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: reply_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
-    * As Microsoft Excel does not fully recognize tweet and user IDs, we intentionally paste "_" in front of each ID.
+2) Run `preprocess.py` that returns two files `replies.csv` and `non_replies.csv` in the `./res` folder. These files consist of four columns: id, user_id, created_at, and tweet. Mentions, emojis, and URLs in body texts are removed.
+    * As Microsoft Excel does not fully recognize tweet and user IDs, we intentionally paste "_" in front of IDs and created_at. 
 
-3) Run `calculate_similarity.py` that returns a file `replies_with_sims.csv`. A new column "sims" will be added to the data of `replies.csv`. This column stores cosine similarity between representation vectors of replies and the vector of official advice that we set as a reference of accurate information. Representation vectors are computed through the Sentence-BERT model (Reimers & Gurevych, 2019). **You should change official advice in `calculate_similarity.py`.**
+3) Run `calculate_similarity.py` that returns a file `./res/replies_with_sims.csv`. A new column "sims" will be added to the data of `replies.csv`. This column stores cosine similarity between representation vectors of replies and the vector of official advice that we set as a reference of accurate information. Representation vectors are computed through the Sentence-BERT model (Reimers & Gurevych, 2019). **You should change official advice in `calculate_similarity.py`.**
     * We set the official advice related to COVID-19 and antibiotics from the WHO (Visit https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters)
     * Warning messages will be shown, like "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:467: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
   _np_qint32 = np.dtype([("qint32", np.int32, 1)])". Just ignore them. 
@@ -40,10 +42,10 @@ Please follow the instructions below.
     * For example, if you run `python collect_parents.py -n 10`, only parents of top 10 replies in terms of similarity will be obtained.
     * JSON files will be stored in the folder `/parents`.        
 
-6) Run `merge.py` to concatenate tweet replies and their parents in a dataframe. Now, it is time to examine whether misinformation about COVID-19 exists in parents of replies having similar context with accurate information. 
+6) Run `merge.py` to concatenate tweet replies and their parents in a dataframe `./res/merged.csv`. Now, it is time to examine whether misinformation about COVID-19 exists in parents of replies having similar context with accurate information. 
     * Self-replies are excluded as we expect volunteer fact checkers correct other users' posts containing misinformation. 
     * For obtaining better results, parents related to COVID-19 and antibiotics should be examined. Searching parents that have context-specific keywords may help to reduce the search space.
-    * Several tweets contain misinformation about COVID-19 and antibiotics. For example, a tweet (ID = 1221440124912713730) claimed that an antibiotics therapy is effective against COVID-19 and another tweet (ID = 1221334540993478656) raised a conspiracy theory that COVID-19 was created by the China to sell more antibiotics.
+    * An example tweet containing misinformation about COVID_19 and antibiotics: (ID = 1234076122381418496) claimed that antibiotics work against COVID-19 because the new coronavirus is just a flu virus(!). 
 
 ### References
 Reimers, N., & Gurevych, I. (2019, November). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP) (pp. 3973-3983).
