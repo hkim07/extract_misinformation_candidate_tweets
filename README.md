@@ -18,7 +18,7 @@ Please follow the instructions below.
 
 1) Run `crawl.py` to download public tweet replies that satisfy a query comprising context-specific keywords.
     * You should change query, start date, and end date, depending on your interest. 
-    * This script returns `{query}_{start date}_{end date}.json` in the `/dat` folder.   
+    * This script returns `{query}_{start date}_{end date}.csv` in the `/dat` folder.   
     * As Twitter often blocks repeated requests, `twint` library offers an option `Resume` to resume search from the last scroll ID. `crawl.py` saves `resume.txt` for this purpose. If this script stops, wait a few minutes and run the script again. Do not delete `resume.txt` until you get the intended data.
 
 2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: reply_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
