@@ -21,8 +21,8 @@ Please follow the instructions below.
     * This script returns `{query}_{start date}_{end date}.csv` in the `/dat` folder.   
     * As Twitter often blocks repeated requests, `twint` library offers an option `Resume` to resume search from the last scroll ID. `crawl.py` saves `resume.txt` for this purpose. If this script stops, wait a few minutes and run the script again. Do not delete `resume.txt` until you get the intended data.
 
-2) Run `preprocess.py` that returns a file `replies.csv` consisting of three columns: reply_id, user_id, and reply_text. Mentions, emojis, and URLs in body texts are removed.
-    * As Microsoft Excel does not fully recognize tweet and user IDs, we intentionally paste "_" in front of each ID.
+2) Run `preprocess.py` that returns two files `replies.csv` and `non_replies.csv` in the `./res` folder. These files consist of four columns: id, user_id, created_at, and tweet. Mentions, emojis, and URLs in body texts are removed.
+    * As Microsoft Excel does not fully recognize tweet and user IDs, we intentionally paste "_" in front of IDs and created_at. 
 
 3) Run `calculate_similarity.py` that returns a file `replies_with_sims.csv`. A new column "sims" will be added to the data of `replies.csv`. This column stores cosine similarity between representation vectors of replies and the vector of official advice that we set as a reference of accurate information. Representation vectors are computed through the Sentence-BERT model (Reimers & Gurevych, 2019). **You should change official advice in `calculate_similarity.py`.**
     * We set the official advice related to COVID-19 and antibiotics from the WHO (Visit https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters)
