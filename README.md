@@ -40,7 +40,7 @@ Please follow the instructions below.
     * For example, if you run `python collect_parents.py -n 10`, only parents of top 10 replies in terms of similarity will be obtained.
     * JSON files will be stored in the folder `/parents`.        
 
-6) Run `merge.py` to concatenate tweet replies and their parents in a dataframe. Now, it is time to examine whether misinformation about COVID-19 exists in parents of replies having similar context with accurate information. 
+6) Run `merge.py` to concatenate tweet replies and their parents in a dataframe `./res/merged.csv`. Now, it is time to examine whether misinformation about COVID-19 exists in parents of replies having similar context with accurate information. 
     * Self-replies are excluded as we expect volunteer fact checkers correct other users' posts containing misinformation. 
     * For obtaining better results, parents related to COVID-19 and antibiotics should be examined. Searching parents that have context-specific keywords may help to reduce the search space.
     * Several tweets contain misinformation about COVID-19 and antibiotics. For example, a tweet (ID = 1221440124912713730) claimed that an antibiotics therapy is effective against COVID-19 and another tweet (ID = 1221334540993478656) raised a conspiracy theory that COVID-19 was created by the China to sell more antibiotics.
