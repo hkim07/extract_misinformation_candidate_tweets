@@ -20,6 +20,7 @@ Please follow the instructions below.
     * You should change query, start date, and end date, depending on your interest. 
     * This script returns `{query}_{start date}_{end date}.csv` in the `/dat` folder.   
     * As Twitter often blocks repeated requests, `twint` library offers an option `Resume` to resume search from the last scroll ID. `crawl.py` saves `resume.txt` for this purpose. If this script stops, wait a few minutes and run the script again. Do not delete `resume.txt` until you get the intended data.
+    * If you want to run a script for a new query, delete the existing `resume.txt`.
 
 2) Run `preprocess.py` that returns two files `replies.csv` and `non_replies.csv` in the `./res` folder. These files consist of four columns: id, user_id, created_at, and tweet. Mentions, emojis, and URLs in body texts are removed.
     * As Microsoft Excel does not fully recognize tweet and user IDs, we intentionally paste "_" in front of IDs and created_at. 
