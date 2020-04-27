@@ -6,7 +6,6 @@ Please follow the instructions below.
 - pandas: `pip install pandas`
 - twint: `pip install twint`
 - sentence-transformers: `pip install sentence-transformers`
-- scikit-learn: `pip install -U scikit-learn`
 - tweepy: `pip install tweepy`
 - langdetect:`pip install langdetect`
 - emoji: `pip install emoji`
