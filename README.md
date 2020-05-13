@@ -41,6 +41,13 @@ pip install -r requirements.txt
     * Consumer API secret key as `csec` in ./config.py
     * Access token as `akey` in ./config.py
     * Access token secret as `asec` in ./config.py
+    * For example,
+      ```
+      ckey=''
+      csec=''
+      akey=''
+      asec=''
+      ```
   
 5) Run `collect_parents.py` that saves JSON files for parents of selected replies. As Twitter API has a rate limit on searching a specific tweet ID, it takes much time if you want to collect parents of all replies. For this reason, we recommend to collect parents of a subset of replies of high similarity. The size of the subset can be set with `-n`.
     * For example, if you run `python collect_parents.py -n 10`, only parents of top 10 replies in terms of similarity will be obtained.
