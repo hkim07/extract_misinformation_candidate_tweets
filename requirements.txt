@@ -1,1 +1,7 @@
-
+pandas
+twints
+sentence-transformers
+tweepy
+langdetect
+emoji
+ftfy
