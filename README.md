@@ -41,7 +41,7 @@ pip install -r requirements.txt
     * Consumer API secret key as `csec` in ./config.py
     * Access token as `akey` in ./config.py
     * Access token secret as `asec` in ./config.py
-    * For example,
+    * `./config.py` should have four lines as follows.
       ```
       ckey=''
       csec=''
