@@ -1,5 +1,5 @@
 pandas
-twints
+twint
 sentence-transformers
 tweepy
 langdetect
