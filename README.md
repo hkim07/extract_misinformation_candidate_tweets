@@ -3,6 +3,11 @@
 Please follow the instructions below. 
 
 ## Dependencies should be installed first.
+
+```
+pip install -r requirements.txt
+```
+
 - pandas: `pip install pandas`
 - twint: `pip install twint`
 - sentence-transformers: `pip install sentence-transformers`
