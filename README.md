@@ -21,9 +21,6 @@ pip install -r requirements.txt
 **Assume that we are interested in identifying misinformation about COVID-19 and antibiotics**
 
 1) Run `crawl.py` to download public tweet replies that satisfy a query comprising context-specific keywords.
-```
-python crawl.py
-```
     * You should change query, start date, and end date, depending on your interest. 
     * This script returns `{query}_{start date}_{end date}.csv` in the `/dat` folder.   
     * As Twitter often blocks repeated requests, `twint` library offers an option `Resume` to resume search from the last scroll ID. `crawl.py` saves `resume.txt` for this purpose. If this script stops, wait a few minutes and run the script again. Do not delete `resume.txt` until you get the intended data.
