@@ -57,7 +57,7 @@ pip install -r requirements.txt
 6) Run `merge.py` to concatenate tweet replies and their parents in a dataframe `./res/merged.csv`. Now, it is time to examine whether misinformation about COVID-19 exists in parents of replies having similar context with accurate information. 
     * Self-replies are excluded as we expect volunteer fact checkers correct other users' posts containing misinformation. 
     * For obtaining better results, parents related to COVID-19 and antibiotics should be examined. Searching parents that have context-specific keywords may help to reduce the search space.
-    * An example tweet containing misinformation about COVID_19 and antibiotics: (ID = 1234076122381418496) claimed that antibiotics work against COVID-19 because the new coronavirus is just a flu virus(!). 
+    * An example tweet containing misinformation about COVID_19 and antibiotics: (ID = 1234076122381418496) claimed that antibiotics work against COVID-19 because the new coronavirus is just a flu virus. 
 
 ### References
 Reimers, N., & Gurevych, I. (2019, November). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP) (pp. 3973-3983).
