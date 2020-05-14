@@ -37,10 +37,10 @@ pip install -r requirements.txt
     * You can observe that replies of high similarity have similar context with the official advice defined in `calculate_similarity.py`.
     
 4) Save your Twitter API credential in `config.py`.
-    * Consumer API key as `ckey` in ./config.py
-    * Consumer API secret key as `csec` in ./config.py
-    * Access token as `akey` in ./config.py
-    * Access token secret as `asec` in ./config.py
+    * Consumer API key as `ckey` in `./config.py`
+    * Consumer API secret key as `csec` in `./config.py`
+    * Access token as `akey` in `./config.py`
+    * Access token secret as `asec` in `./config.py`
     * `config.py` should have four lines as follows.
     
       ```
@@ -52,7 +52,7 @@ pip install -r requirements.txt
   
 5) Run `collect_parents.py` that saves JSON files for parents of selected replies. As Twitter API has a rate limit on searching a specific tweet ID, it takes much time if you want to collect parents of all replies. For this reason, we recommend to collect parents of a subset of replies of high similarity. The size of the subset can be set with `-n`.
     * For example, if you run `python collect_parents.py -n 10`, only parents of top 10 replies in terms of similarity will be obtained.
-    * JSON files will be stored in the folder `/parents`.        
+    * JSON files will be stored in the folder `./parents`.        
 
 6) Run `merge.py` to concatenate tweet replies and their parents in a dataframe `./res/merged.csv`. Now, it is time to examine whether misinformation about COVID-19 exists in parents of replies having similar context with accurate information. 
     * Self-replies are excluded as we expect volunteer fact checkers correct other users' posts containing misinformation. 
