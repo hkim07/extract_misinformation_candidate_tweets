@@ -36,12 +36,13 @@ pip install -r requirements.txt
   _np_qint32 = np.dtype([("qint32", np.int32, 1)])". If you encounter any warning messages, Just ignore them. 
     * You can observe that replies of high similarity have similar context with the official advice defined in `calculate_similarity.py`.
     
-4) Save your Twitter API credential in `./config.py`.
+4) Save your Twitter API credential in `config.py`.
     * Consumer API key as `ckey` in ./config.py
     * Consumer API secret key as `csec` in ./config.py
     * Access token as `akey` in ./config.py
     * Access token secret as `asec` in ./config.py
-    * `./config.py` should have four lines as follows.
+    * `config.py` should have four lines as follows.
+    
       ```
       ckey=''
       csec=''
